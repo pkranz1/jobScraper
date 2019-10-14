@@ -1,0 +1,8 @@
+POST http://localhost:8000/posts
+Content-Type: application/json
+
+{
+    "_link": "1",
+    "_description": "1",
+    "_title": "title"
+}

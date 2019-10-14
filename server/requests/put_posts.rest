@@ -1,0 +1,2 @@
+PUT http://localhost:8000/posts/5d9bc8a78396a24faa983df6
+Content-Type: application/json
