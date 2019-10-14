@@ -10,7 +10,7 @@ function Job({ job, saveFunction }) {
   if(hide) {
     return(
       <div className="jobPost">
-        <h4>{job._title}</h4>
+        <h4>{job.title}</h4>
         <button onClick={() => updateHide(!hide)}>Show</button>
       </div>
     );
@@ -18,10 +18,11 @@ function Job({ job, saveFunction }) {
     return(
       <div className="jobPost">
         <div>
-          <h4 className="center-text">{job._title}</h4>
+          <h4 className="center-text">{job.title}</h4>
           <button onClick={() => updateHide(!hide)}>Hide</button>
-          <p>{job._description}</p>
-          <a href={job._link} target="_blank" rel="noopener noreferrer">Link</a>
+          <p>{job.description}</p>
+          <p>Email: {job.email}</p>
+          <a href={job.link} target="_blank" rel="noopener noreferrer">Link</a>
         </div>
         <div>
           <button onClick={(event) => {saveFunction(event,job)}}>Save</button>

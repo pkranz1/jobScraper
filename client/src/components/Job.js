@@ -7,7 +7,7 @@ function Job({job}){
   if( hide ) {
     return(
       <div>
-        <h4>{job._title}</h4>
+        <h4>{job.title}</h4>
         <button onClick={() => updateHide(false)}>Show</button>
       </div>
     );

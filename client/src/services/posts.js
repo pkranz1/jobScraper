@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:8000'
+const baseUrl = 'http://localhost:8001'
 
 async function deletePost(object) {
     const request = await axios.delete(`${baseUrl}/posts/${object.id}`);

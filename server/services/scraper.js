@@ -36,7 +36,7 @@ const getJobLinks = async (page) => {
   const links = [];
   let html;
   
-  await page.goto(config.URL2)
+  await page.goto(config.URL)
   
   //executes as long as there is a next page button on the 
   //current page.
