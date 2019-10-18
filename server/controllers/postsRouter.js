@@ -23,7 +23,7 @@ router.get('/saved', async function (req, res, next){
 router.put('/:id', async function (req, res, next) {
     const id = req.params.id;
     const post = {
-        _saved: true
+        saved: true
     };
     try {
         const updatedPost = await Post.findByIdAndUpdate(id, post, { new: true });
