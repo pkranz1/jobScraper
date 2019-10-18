@@ -1,8 +1,8 @@
-const scraperRouter = require('express').Router();
+const router = require('express').Router();
 const scraper = require('../services/scraper');
 
 
-scraperRouter.get('/', async function(req, res, next) {
+router.get('/', async function(req, res, next) {
   try {
     await scraper();
     res.status(200).send('Scraping Complete');
@@ -15,4 +15,4 @@ scraperRouter.get('/', async function(req, res, next) {
 });
 
 
-module.exports = scraperRouter;
+module.exports = router;

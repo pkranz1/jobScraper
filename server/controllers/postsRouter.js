@@ -1,8 +1,8 @@
 const Post = require('../models/post');
-const postsRouter = require('express').Router();
+const router= require('express').Router();
 
 
-postsRouter.get('/', async function (req, res, next){
+router.get('/', async function (req, res, next){
     try {
         const posts = await Post.find({ saved: false });
         res.json(posts.map(post => post.toJSON()));
@@ -11,7 +11,7 @@ postsRouter.get('/', async function (req, res, next){
     }
 });
 
-postsRouter.get('/saved', async function (req, res, next){
+router.get('/saved', async function (req, res, next){
     try {
         const posts = await Post.find({ saved: true });
         res.json(posts.map(post => post.toJSON()));
@@ -20,7 +20,7 @@ postsRouter.get('/saved', async function (req, res, next){
     }
 });
 
-postsRouter.put('/:id', async function (req, res, next) {
+router.put('/:id', async function (req, res, next) {
     const id = req.params.id;
     const post = {
         _saved: true
@@ -33,7 +33,7 @@ postsRouter.put('/:id', async function (req, res, next) {
     }
 });
 
-postsRouter.delete('/:id', async function (req, res, next) {
+router.delete('/:id', async function (req, res, next) {
     const id = req.params.id;
     
     try {
@@ -45,4 +45,4 @@ postsRouter.delete('/:id', async function (req, res, next) {
     }
 });
 
-module.exports = postsRouter;
+module.exports = router;

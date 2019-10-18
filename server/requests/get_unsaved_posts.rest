@@ -1,2 +1,2 @@
-GET http://localhost:8000/posts
+GET http://localhost:8080/api/posts
 Content-Type: application/json

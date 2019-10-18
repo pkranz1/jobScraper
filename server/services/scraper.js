@@ -6,7 +6,7 @@ const Post = require('../models/post');
 //returns the array of job posts
 const scraper = async () => {
   //launches instance of puppeteer
-  const browser = await puppeteer.launch({ headless: true, });
+  const browser = await puppeteer.launch({ headless: false, });
   const page = await browser.newPage();
   //stores the jobposts
   const jobPosts = [];
@@ -85,11 +85,11 @@ const getJobPostInfo = async (page, link) => {
     let compensation;
     
     try {
-      title = document.querySelector('#titletextonly').innerHTML;
-      description = document.querySelector('#postingbody').innerHTML;
-      email = document.querySelector('a.mailapp').innerHTML;
+      title = document.querySelector('#titletextonly').textContent;
+      description = document.querySelector('#postingbody').textContent;
+      email = document.querySelector('a.mailapp').textContent;
       compensation = document.querySelector('body > section > section > section > div.mapAndAttrs > p > span:nth-child(1) > b')
-        .innerHTML;
+        .textContent;
     } catch(typeError) {
       console.log(typeError);
     } finally {
