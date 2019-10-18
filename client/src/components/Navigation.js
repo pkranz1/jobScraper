@@ -10,7 +10,7 @@ function Navigation(props) {
       <Link className="navbar-brand" to="/">JobScraper</Link>
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <NavLink className="nav-link" exact to="/posts/new">
+          <NavLink className="nav-link" exact to="/posts/saved">
             Saved Job Posts
           </NavLink>
         </li>

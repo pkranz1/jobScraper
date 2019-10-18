@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import NewJobPostsPage from './pages/NewJobPostsPage';
+import SavedJobPostsPage from './pages/SavedJobPosts';
 
 
 
@@ -21,6 +22,7 @@ class App extends React.Component {
         <div className="container-fluid text-center">
           <div className="row justify-content-center">
             <Switch>
+              <Route path="/posts/saved" component={SavedJobPostsPage}/>
               <Route path="/" component={NewJobPostsPage} />
             </Switch>
           </div>
