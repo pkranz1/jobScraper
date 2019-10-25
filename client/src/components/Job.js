@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-function Job({ title, description, email, link, date, id, savePost}) {
+function Job({ title, description, email, link, date, id, buttonText, postAction}) {
   const [hide, changeHidden] = useState(true);
+
   if(hide) {
     return(
       <div className="col-10 col-md-8 col-lg-7">
@@ -25,7 +26,7 @@ function Job({ title, description, email, link, date, id, savePost}) {
           <a href={ link } className="card-link"><p>LINK</p></a>
           <div className="btn-group" role="group">
             <button type="button" className="btn btn-info" onClick={ (event) => changeHidden(!hide) }>Hide</button>
-            <button type="button" className="btn btn-info" onClick={(event) => savePost(id)}>Save</button>
+            <button type="button" className="btn btn-info" onClick={(event) => postAction(id)}>{ buttonText }</button>
           </div>
           
         </div>

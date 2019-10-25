@@ -53,7 +53,8 @@ class NewJobsPostsPage extends React.Component {
       return <Job
         { ...post }
         key={ index }
-        savePost={this.saveJobPost}
+        buttonText={ 'Save' }
+        postAction={this.saveJobPost}
       />
     });
   }

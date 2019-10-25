@@ -6,7 +6,7 @@ const Post = require('../models/post');
 //returns the array of job posts
 const scraper = async () => {
   //launches instance of puppeteer
-  const browser = await puppeteer.launch({ headless: false, });
+  const browser = await puppeteer.launch({ headless: true, });
   const page = await browser.newPage();
   //stores the jobposts
   const jobPosts = [];

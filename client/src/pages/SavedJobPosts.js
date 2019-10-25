@@ -6,11 +6,13 @@ class SavedJobsPostsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      state: [],
+      jobs: [],
       loading: true,
     }
     this.mounted = null;
     this.reactReadyJobs = this.reactReadyJobs.bind(this);
+    this.deleteJobPost = this.deleteJobPost.bind(this);
+
   }
 
   componentDidMount() {
@@ -33,12 +35,26 @@ class SavedJobsPostsPage extends React.Component {
     this.mounted = false;
   }
 
+  deleteJobPost(id) {
+    console.log('the object id: ', id);
+    fetch(`http://localhost:8080/api/posts/${id}`, {
+      method: 'DELETE',
+    })
+    .then(() => {
+      this.setState({
+        jobs: this.state.jobs.filter(post => post.id !== id),
+      });
+    })
+    .catch(err => console.error(err));
+  }
+
   reactReadyJobs() {
     return this.state.jobs.map((post, index) => {
       return <Job
         { ...post }
+        buttonText= { 'delete' }
+        postAction={ this.deleteJobPost }
         key={ index }
-        savePost={this.saveJobPost}
       />
     });
   }
